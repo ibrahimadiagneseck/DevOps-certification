@@ -1,0 +1,32 @@
+Activer
+VTx (Intel) ou SVM (AMD) dans le BIOS
+Virtualization pour permettre la virtualisation matérielle
+
+
+Désactiver
+Microsoft Hyper-V
+Windows Hypervisor Platform
+Windows Subsystem for Linux (WSL)
+Docker Desktop
+Virtual Machine Platform
+
+
+//v\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+Centos9 :
+
+- ip addr show
+
+
+
+Windows :
+
+- ssh centos9@192.168.1.10 
+
+
+Ubuntu24 : (version serveur)
+
+
+
+//v\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
