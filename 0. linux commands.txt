@@ -1,0 +1,1070 @@
+
+whoami → Affiche l’utilisateur courant (vagrant).
+
+exit → Quitte le shell ou la session courante.
+
+whoami → Vérifie de nouveau l’utilisateur courant.
+
+pwd → Affiche le chemin du répertoire courant.
+
+ls → Liste les fichiers et dossiers du répertoire courant.
+
+cat /etc/os-release → Affiche les informations sur le système d’exploitation (version, nom, ID).
+
+sudo -i → Passe en mode super-utilisateur root pour avoir tous les privilèges.
+
+whoami → Vérifie que l’utilisateur est root.
+
+pwd → Affiche le répertoire courant (probablement /root).
+
+ls → Liste le contenu du répertoire courant.
+
+cd / → Se déplace à la racine du système.
+
+pwd → Affiche le chemin courant (/).
+
+ls → Liste les fichiers et dossiers à la racine.
+
+pwd → Vérifie encore le répertoire courant.
+
+cd /bin → Se déplace dans /bin, où se trouvent les exécutables essentiels.
+
+ls → Liste le contenu de /bin.
+
+cd /sbin/ → Se déplace dans /sbin, contenant les commandes système pour l’administration.
+
+ls → Liste le contenu de /sbin.
+
+cd /etc/ → Se déplace dans /etc, le dossier de configuration système.
+
+ls → Liste les fichiers et dossiers de /etc.
+
+cat /etc/hostname → Affiche le nom de la machine.
+
+cd /tmp/ → Se déplace dans le dossier temporaire.
+
+ls → Liste les fichiers temporaires.
+
+cd /boot/ → Se déplace dans /boot, contenant les fichiers de démarrage.
+
+ls → Liste le contenu de /boot.
+
+cd grub → Se déplace dans /boot/grub (configuration du bootloader).
+
+ls → Liste les fichiers GRUB.
+
+cd .. → Remonte d’un niveau dans /boot.
+
+cd grub2/ → Se déplace dans /boot/grub2 (nouvelle version du bootloader).
+
+ls → Liste les fichiers GRUB2.
+
+pwd → Affiche le répertoire courant.
+
+cd → Retourne dans le répertoire home de root (/root).
+
+pwd → Vérifie que l’on est dans /root.
+
+cd /proc/ → Se déplace dans /proc, le système de fichiers virtuel pour les processus.
+
+ls → Liste les informations des processus et systèmes virtuels.
+
+uptime → Affiche la durée depuis le dernier démarrage et la charge système.
+
+cat /proc/uptime → Montre le temps écoulé depuis le dernier boot et le temps d’inactivité du système.
+
+free -m → Affiche l’état de la mémoire RAM en mégaoctets.
+
+ls → Liste les fichiers dans le répertoire courant (probablement /proc).
+
+cd → Retourne dans le répertoire home (/root).
+
+
+
+
+
+
+
+
+ls → Liste les fichiers et dossiers du répertoire courant.
+
+pwd → Affiche le chemin du répertoire courant.
+
+mkdir dev → Crée un dossier nommé dev.
+
+mkdir ops bakupdir → Crée deux dossiers ops et bakupdir.
+
+ls → Liste les fichiers et dossiers pour vérifier la création.
+
+pwd → Vérifie le chemin du répertoire courant.
+
+touch testfile1.txt → Crée un fichier vide nommé testfile1.txt.
+
+ls → Liste les fichiers pour confirmer la création.
+
+touch devopsfile{1..10}.txt → Crée 10 fichiers nommés devopsfile1.txt à devopsfile10.txt.
+
+ls → Liste les fichiers pour vérifier la création.
+
+cp devopsfile1.txt dev/ → Copie le fichier devopsfile1.txt dans le dossier dev.
+
+ls dev/ → Liste le contenu du dossier dev pour confirmer la copie.
+
+ls → Vérifie le contenu du répertoire courant.
+
+cd /tmp/ → Change le répertoire courant vers /tmp.
+
+ls → Liste les fichiers dans /tmp.
+
+ls /home/vagrant/dev/ → Vérifie le contenu du dossier dev.
+
+cd → Retourne dans le répertoire home (/home/vagrant).
+
+ls → Liste le contenu du répertoire home.
+
+pwd → Affiche le chemin du répertoire home.
+
+cd /tmp/ → Va dans /tmp.
+
+cp /home/vagrant/devopsfile2.txt /home/vagrant/dev/ → Copie devopsfile2.txt dans le dossier dev.
+
+cd ~ → Retourne dans le répertoire home.
+
+pwd → Affiche le chemin du répertoire home.
+
+ls → Liste le contenu du répertoire home.
+
+cp dev bakupdir/ → Copie le dossier dev dans bakupdir (copie simple, sans récursivité).
+
+ls bakupdir/ → Vérifie le contenu de bakupdir.
+
+ls /home/vagrant/bakupdir/ → Vérifie le même contenu avec le chemin complet.
+
+cp -r dev bakupdir/ → Copie récursivement le dossier dev dans bakupdir.
+
+ls bakupdir/ → Vérifie le contenu pour confirmer la copie récursive.
+
+ls /home/vagrant/bakupdir/ → Vérifie à nouveau le contenu avec chemin complet.
+
+cp --help → Affiche l’aide de la commande cp.
+
+pwd → Affiche le répertoire courant.
+
+ls → Liste les fichiers et dossiers.
+
+mv devopsfile3.txt ops/ → Déplace devopsfile3.txt dans le dossier ops.
+
+ls ops/ → Vérifie que le fichier a bien été déplacé.
+
+mv ops dev/ → Déplace le dossier ops dans dev.
+
+ls → Liste le contenu du répertoire courant pour confirmer.
+
+ls dev/ → Vérifie le contenu du dossier dev.
+
+ls → Vérifie à nouveau le contenu du répertoire courant.
+
+mv testfile1.txt testfile22.txt → Renomme testfile1.txt en testfile22.txt.
+
+ls → Vérifie que le renommage a fonctionné.
+
+ls → Liste les fichiers et dossiers.
+
+mkdir textdir → Crée un dossier textdir.
+
+ls → Vérifie la création de textdir.
+
+mv *.txt textdir/ → Déplace tous les fichiers .txt dans textdir.
+
+ls → Vérifie que les fichiers ont été déplacés.
+
+cd textdir/ → Se déplace dans le dossier textdir.
+
+ls → Liste les fichiers à l’intérieur.
+
+rm devopsfile10.txt → Supprime le fichier devopsfile10.txt.
+
+mkdir mobile → Crée un dossier mobile.
+
+ls → Vérifie la création du dossier mobile.
+
+rm mobile → Tente de supprimer mobile (échoue si non vide ou permissions).
+
+rm -r mobile → Supprime le dossier mobile récursivement.
+
+ls → Vérifie que le dossier mobile a été supprimé.
+
+ls → Liste le contenu du répertoire courant.
+
+mkdir testdir{1..5} → Crée 5 dossiers testdir1 à testdir5.
+
+ls → Vérifie la création des dossiers.
+
+rm -rf * → Supprime tous les fichiers et dossiers du répertoire courant de façon forcée et récursive.
+
+ls → Vérifie que tout a été supprimé.
+
+pwd → Affiche le répertoire courant.
+
+cd → Retourne dans le répertoire home.
+
+ls → Liste le contenu du répertoire home.
+
+rm -rf * → Supprime tout le contenu du répertoire home de façon forcée et récursive.
+
+ls → Vérifie que le répertoire home est vide.
+
+
+
+
+
+
+
+
+pwd → Affiche le répertoire courant.
+
+ls -l → Liste les fichiers et dossiers avec détails (permissions, propriétaire, taille, date).
+
+mkdir devopsdir → Crée un dossier devopsdir.
+
+ls -l → Vérifie la création du dossier avec détails.
+
+file anaconda-ks.cfg → Montre le type du fichier anaconda-ks.cfg (texte, binaire, etc.).
+
+cd /bin/ → Change le répertoire vers /bin, contenant les exécutables essentiels.
+
+ls -l → Liste les fichiers de /bin avec détails.
+
+file yum → Vérifie le type de l’exécutable yum.
+
+file /bin/pwd → Vérifie le type de l’exécutable pwd.
+
+cd → Retourne dans le répertoire home de root.
+
+ls -l → Liste les fichiers du répertoire home avec détails.
+
+file devopsdir → Vérifie que devopsdir est bien un dossier.
+
+cd /dev/ → Change le répertoire vers /dev, contenant les périphériques du système.
+
+ls -l → Liste les périphériques avec détails.
+
+cd → Retourne dans le répertoire home.
+
+pwd → Affiche le répertoire courant.
+
+ls → Liste les fichiers et dossiers.
+
+mkdir /opt/dev/ops/devops/test → Crée une arborescence de dossiers (non récursive si les dossiers parents n’existent pas).
+
+mkdir -p /opt/dev/ops/devops/test → Crée l’arborescence complète avec tous les dossiers parents si nécessaires.
+
+mkdir /opt/dev/ops/devops/test → Tente de créer le dossier (déjà créé précédemment).
+
+vim /opt/dev/ops/devops/test/commands.txt → Ouvre le fichier commands.txt dans Vim pour l’éditer.
+
+ln -s /opt/dev/ops/devops/test/commands.txt cmds → Crée un lien symbolique cmds pointant vers le fichier commands.txt.
+
+ls -l → Vérifie le lien symbolique et les fichiers.
+
+cat cmds → Affiche le contenu du fichier via le lien symbolique.
+
+mv /opt/dev/ops/devops/test/commands.txt /tmp/ → Déplace le fichier vers /tmp/.
+
+ls -l → Vérifie que le fichier a été déplacé.
+
+mv /tmp/commands.txt /opt/dev/ops/devops/test/commands.txt → Ramène le fichier à son emplacement initial.
+
+ls -l → Vérifie le fichier et le lien symbolique.
+
+ls -l → Liste les fichiers avec détails.
+
+unlink cmds → Supprime le lien symbolique cmds.
+
+ls -l → Vérifie la suppression du lien.
+
+ln -s /opt/dev/ops/devops/test/commands.txt cmds → Recrée le lien symbolique cmds.
+
+ls -l → Vérifie la création du lien.
+
+ls -lt → Liste les fichiers triés par date de modification (du plus récent au plus ancien).
+
+ls -ltr → Liste les fichiers triés par date de modification (du plus ancien au plus récent).
+
+ls -ltr /etc/ → Liste les fichiers de /etc par date croissante.
+
+vim /etc/hostname → Ouvre le fichier hostname pour modification.
+
+hostname centos7.devops.in → Change le nom de la machine en centos7.devops.in.
+
+sudo -i → Passe en super-utilisateur root pour avoir tous les privilèges.
+
+hostname → Affiche le nom actuel de la machine.
+
+ls -ltr /etc/ → Liste les fichiers de /etc par date croissante.
+
+history → Affiche l’historique des commandes.
+
+sudo -i → Repassage en root pour continuer les opérations.
+
+
+
+
+
+
+
+ls → Liste les fichiers et dossiers du répertoire courant.
+
+ls → Vérifie à nouveau le contenu du répertoire.
+
+grep firewall anaconda-ks.cfg → Cherche le mot firewall dans le fichier anaconda-ks.cfg.
+
+grep Firewall anaconda-ks.cfg → Cherche le mot Firewall en respectant la casse.
+
+grep -i Firewall anaconda-ks.cfg → Cherche Firewall sans tenir compte de la casse.
+
+vim anaconda-ks.cfg → Ouvre le fichier anaconda-ks.cfg dans Vim pour l’éditer.
+
+grep -i firewall anaconda-ks.cfg → Recherche insensible à la casse dans le fichier.
+
+grep -i firewall < anaconda-ks.cfg → Autre manière d’utiliser grep avec redirection d’entrée.
+
+grep -i firewall ls → Recherche de “firewall” dans un fichier nommé ls (probablement une erreur).
+
+ls → Liste le contenu du répertoire.
+
+grep -i firewall * → Recherche dans tous les fichiers du répertoire.
+
+grep -i firewall * → Même commande que 105, recherche dans tous les fichiers.
+
+grep -iR firewall * → Recherche récursive dans tous les fichiers et sous-dossiers.
+
+cp anaconda-ks.cfg devopsdir/mybootingfile.cfg → Copie le fichier dans devopsdir sous un nouveau nom.
+
+grep -iR firewall * → Recherche récursive dans tous les fichiers.
+
+cd /etc/ → Change le répertoire vers /etc (fichiers de configuration).
+
+ls → Liste le contenu de /etc.
+
+cd NetworkManager/ → Se déplace dans le dossier NetworkManager.
+
+lsa → Probablement une erreur de frappe, la commande correcte est ls -a.
+
+ls → Liste les fichiers de NetworkManager.
+
+vim NetworkManager.conf → Ouvre le fichier NetworkManager.conf dans Vim pour édition.
+
+cd .. → Remonte d’un niveau dans /etc.
+
+ls → Vérifie le contenu de /etc.
+
+cd selinux/ → Change le répertoire vers /etc/selinux.
+
+ls → Liste les fichiers dans le dossier SELinux.
+
+cat config → Affiche le contenu du fichier config de SELinux.
+
+cd → Retourne dans le répertoire home.
+
+grep -i selinux /etc/ → Recherche le mot “selinux” dans les fichiers de /etc/ (non récursive).
+
+grep -i selinux /etc/ -R → Recherche récursive dans tous les sous-dossiers.
+
+grep SELINUX /etc/ -R → Recherche le mot “SELINUX” en respectant la casse, récursive.
+
+grep -R SELINUX /etc/* → Recherche récursive sur tous les fichiers de /etc.
+
+vim /etc/selinux/config → Ouvre le fichier SELinux pour modification.
+
+grep -vi firewall anaconda-ks.cfg → Affiche toutes les lignes du fichier ne contenant pas “firewall” (insensible à la casse).
+
+less anaconda-ks.cfg → Affiche le fichier page par page avec navigation.
+
+more anaconda-ks.cfg → Même fonction que less, pour lire le fichier page par page.
+
+head anaconda-ks.cfg → Affiche les 10 premières lignes du fichier.
+
+head -20 anaconda-ks.cfg → Affiche les 20 premières lignes.
+
+head -2 anaconda-ks.cfg → Affiche les 2 premières lignes.
+
+tail anaconda-ks.cfg → Affiche les 10 dernières lignes du fichier.
+
+tail -2 anaconda-ks.cfg → Affiche les 2 dernières lignes.
+
+tail -f anaconda-ks.cfg → Affiche les nouvelles lignes en temps réel au fur et à mesure qu’elles sont ajoutées.
+
+cd /var/log/ → Se déplace dans le répertoire des logs système.
+
+ls → Liste les fichiers de logs.
+
+tail -f yum.log → Affiche en temps réel les nouvelles lignes du fichier yum.log.
+
+ls → Vérifie à nouveau le contenu du dossier de logs.
+
+cat messages → Affiche le contenu complet du fichier de messages système.
+
+tail -f /var/log/messages → Affiche les nouvelles lignes des messages système en temps réel.
+
+cd → Retourne dans le répertoire home.
+
+cat /etc/passwd → Affiche le fichier des utilisateurs système.
+
+cut -d: -f1 /etc/passwd → Extrait la première colonne (nom des utilisateurs).
+
+cut -d: -f3 /etc/passwd → Extrait la troisième colonne (UID des utilisateurs).
+
+cut -d: -f4 /etc/passwd → Extrait la quatrième colonne (GID des utilisateurs).
+
+awk '{print $1}' /etc/passwd → Affiche la première colonne de chaque ligne (nom d’utilisateur), espace comme séparateur par défaut.
+
+awk -F':' '{print $1}' /etc/passwd → Affiche la première colonne en utilisant : comme séparateur.
+
+awk -F':' '{print $1}' /etc/passwd → Même commande que 163, pour vérifier.
+
+ls → Liste les fichiers dans le répertoire courant.
+
+cat cmds → Affiche le contenu du lien symbolique cmds.
+
+vim samplefile.txt → Ouvre samplefile.txt dans Vim pour édition.
+
+cat samplefile.txt → Affiche le contenu du fichier.
+
+vim samplefile.txt → Ré-édition du fichier.
+
+cat samplefile.txt → Vérifie le contenu après édition.
+
+sed 's/coronavirus/covid19/g' samplefile.txt → Affiche la sortie où “coronavirus” est remplacé par “covid19” (sans modifier le fichier).
+
+cat samplefile.txt → Vérifie que le fichier original n’a pas été modifié.
+
+sed -i 's/coronavirus/covid19/g' samplefile.txt → Remplace “coronavirus” par “covid19” dans le fichier directement.
+
+cat samplefile.txt → Vérifie que le fichier a été modifié.
+
+sed -i 's/covid19/nothing/g' samplefile.txt → Remplace “covid19” par “nothing” directement dans le fichier.
+
+cat samplefile.txt → Vérifie le résultat final des modifications.
+
+
+
+
+
+
+
+uptime → Affiche la durée de fonctionnement du système et la charge moyenne.
+
+cat /etc/passwd → Affiche le contenu du fichier des utilisateurs.
+
+uptime > /tmp/sysinfo.txt → Redirige la sortie de uptime vers le fichier /tmp/sysinfo.txt.
+
+cat /tmp/sysinfo.txt → Affiche le contenu du fichier /tmp/sysinfo.txt.
+
+ls → Liste les fichiers du répertoire courant.
+
+ls > /tmp/sysinfo.txt → Redirige la liste des fichiers vers le fichier /tmp/sysinfo.txt, écrasant le contenu existant.
+
+cat /tmp/sysinfo.txt → Vérifie le contenu du fichier après redirection.
+
+uptime >> /tmp/sysinfo.txt → Ajoute la sortie de uptime à la fin du fichier sans écraser le contenu.
+
+cat /tmp/sysinfo.txt → Vérifie le fichier mis à jour.
+
+uptime → Affiche à nouveau l’état du système.
+
+free -m → Affiche la mémoire RAM en mégaoctets.
+
+df -h → Affiche l’espace disque disponible de façon lisible.
+
+echo "Good Morning" → Affiche le texte "Good Morning" à l’écran.
+
+echo "########################################" > /tmp/sysinfo.txt → Écrit une ligne de séparateurs dans le fichier, écrasant le contenu existant.
+
+date > /tmp/sysinfo.txt → Écrit la date actuelle dans le fichier (remplace le contenu précédent).
+
+echo "########################################" >> /tmp/sysinfo.txt → Ajoute une ligne de séparateurs à la fin du fichier.
+
+uptime >> /tmp/sysinfo.txt → Ajoute l’état du système dans le fichier.
+
+echo "########################################" >> /tmp/sysinfo.txt → Ajoute un séparateur.
+
+free -m >> /tmp/sysinfo.txt → Ajoute l’état de la mémoire dans le fichier.
+
+echo "########################################" >> /tmp/sysinfo.txt → Ajoute un séparateur.
+
+df -h >> /tmp/sysinfo.txt → Ajoute l’état du disque au fichier.
+
+echo "########################################" >> /tmp/sysinfo.txt → Ajoute un séparateur final.
+
+cat /tmp/sysinfo.txt → Affiche le fichier complet contenant la synthèse système.
+
+yum install vim -y > /dev/null → Installe Vim en silence, sans afficher la sortie.
+
+cat /dev/null → Affiche un flux vide (équivalent à rien).
+
+cat /tmp/sysinfo.txt → Affiche de nouveau le fichier sysinfo.
+
+cat /dev/null > /tmp/sysinfo.txt → Vide le fichier /tmp/sysinfo.txt.
+
+cat /tmp/sysinfo.txt → Vérifie que le fichier est maintenant vide.
+
+free -m > /dev/null → Exécute la commande, mais envoie la sortie vers /dev/null.
+
+freeeee -m > /dev/null → Commande invalide (freeeee n’existe pas), sortie vers /dev/null.
+
+freeeee -m 2>> /tmp//error.log → Erreur capturée dans le fichier error.log.
+
+cat /tmp/error.log → Affiche le fichier des erreurs.
+
+free -m 1>> /tmp//error.log → Ajoute la sortie standard de free -m au fichier d’erreurs.
+
+cat /tmp/error.log → Vérifie le contenu du fichier.
+
+free -m &>> /tmp//error.log → Ajoute à la fois stdout et stderr dans le fichier d’erreurs.
+
+freesdsd -m &>> /tmp//error.log → Commande invalide, erreur ajoutée au fichier d’erreurs.
+
+cat /tmp/error.log → Affiche les erreurs accumulées.
+
+cd /var/log/ → Se déplace dans le dossier des logs système.
+
+ls → Liste les fichiers de logs.
+
+cd → Retourne dans le répertoire home.
+
+wc -l /etc/passwd → Compte le nombre de lignes dans /etc/passwd.
+
+wc -l < /etc/passwd → Autre manière de compter les lignes (entrée redirigée).
+
+cd /etc/ → Se déplace dans /etc.
+
+ls → Liste les fichiers.
+
+ls | wc -l → Compte le nombre de fichiers et dossiers dans le répertoire.
+
+ls | grep host* → Cherche les fichiers dont le nom contient “host”.
+
+ls | grep host* → Répétition de la commande précédente.
+
+ls | wc -l → Compte à nouveau le nombre de fichiers.
+
+ls | grep host* → Cherche les fichiers contenant “host”.
+
+ls | grep host → Cherche les fichiers contenant exactement “host”.
+
+tail /var/log/messages | grep -i vagrant → Filtre les 10 dernières lignes contenant “vagrant”.
+
+tail -20 /var/log/messages | grep -i vagrant → Filtre les 20 dernières lignes contenant “vagrant”.
+
+free -m → Affiche la mémoire RAM.
+
+free -m | grep Mem → Affiche uniquement la ligne “Mem” de la mémoire.
+
+ls -l | tail → Affiche les 10 derniers fichiers dans la liste détaillée.
+
+ls -l | head → Affiche les 10 premiers fichiers dans la liste détaillée.
+
+cd → Retourne dans le répertoire home.
+
+find /etc -name host* → Recherche récursive des fichiers commençant par “host” dans /etc.
+
+find / -name host* → Recherche sur tout le système des fichiers commençant par “host”.
+
+locate → Affiche la base de données de fichiers connus (probablement vide ou obsolète si non mise à jour).
+
+yum install mlocate -y → Installe le paquet mlocate pour utiliser la commande locate.
+
+updatedb → Met à jour la base de données pour locate.
+
+locate host → Recherche tous les fichiers contenant “host” dans le chemin.
+
+
+
+
+
+
+whoami → Affiche l’utilisateur courant connecté.
+
+cat /etc/passwd → Affiche la liste complète des utilisateurs du système.
+
+head -1 /etc/passwd → Affiche seulement la première ligne du fichier /etc/passwd.
+
+head -1 /etc/passwd → Vérifie à nouveau la première ligne des utilisateurs.
+
+grep vagrant /etc/passwd → Recherche les informations concernant l’utilisateur vagrant.
+
+cat /etc/passwd → Affiche encore le fichier des utilisateurs.
+
+cat /etc/group → Affiche tous les groupes du système.
+
+grep vagrant /etc/passwd → Recherche les infos de vagrant dans les utilisateurs.
+
+grep vagrant /etc/group → Recherche si vagrant appartient à un groupe spécifique.
+
+id vagrant → Affiche l’UID, le GID et les groupes de l’utilisateur vagrant.
+
+useradd ansible → Crée un nouvel utilisateur nommé ansible.
+
+useradd jenkins → Crée un nouvel utilisateur nommé jenkins.
+
+useradd aws → Crée un nouvel utilisateur nommé aws.
+
+tail -4 /etc/passwd → Affiche les 4 dernières lignes du fichier des utilisateurs (vérifie les nouveaux comptes).
+
+tail -4 /etc/group → Affiche les 4 derniers groupes du système.
+
+id ansible → Affiche l’UID, le GID et les groupes de l’utilisateur ansible.
+
+groupadd devops → Crée un groupe nommé devops.
+
+usermod -aG devops ansible → Ajoute l’utilisateur ansible au groupe devops.
+
+id ansible → Vérifie l’appartenance du compte ansible au groupe devops.
+
+grep devops /etc/group → Vérifie que le groupe devops contient bien ansible.
+
+vim /etc/group → Ouvre le fichier /etc/group pour édition.
+
+id aws → Affiche les infos de l’utilisateur aws.
+
+passwd ansible → Modifie le mot de passe de l’utilisateur ansible.
+
+passwd aws → Modifie le mot de passe de l’utilisateur aws.
+
+passwd jenkins → Modifie le mot de passe de l’utilisateur jenkins.
+
+su - ansible → Passe en session de l’utilisateur ansible.
+
+last → Affiche les dernières connexions des utilisateurs.
+
+who → Affiche les utilisateurs actuellement connectés.
+
+lsof -u vagrant → Liste tous les fichiers ouverts par l’utilisateur vagrant.
+
+yum install lsof -y → Installe l’outil lsof.
+
+lsof -u vagrant → Liste les fichiers ouverts par vagrant après installation de l’outil.
+
+lsof -u aws → Liste les fichiers ouverts par l’utilisateur aws.
+
+userdel aws → Supprime l’utilisateur aws (sans supprimer le home).
+
+ls /home/ → Vérifie les dossiers utilisateurs restants dans /home.
+
+userdel -r jenkins → Supprime l’utilisateur jenkins et son dossier personnel.
+
+ls /home/ → Vérifie les changements dans /home.
+
+groupdel devops → Supprime le groupe devops.
+
+userdel -r ansible → Supprime l’utilisateur ansible et son home.
+
+ls /home/ → Vérifie que les dossiers des utilisateurs supprimés ont disparu.
+
+rm -rf /home/aws → Supprime manuellement le dossier restant de l’utilisateur aws.
+
+
+
+
+
+mkdir /opt/devopsdir → Crée un nouveau dossier /opt/devopsdir.
+
+ls -l /opt/ → Liste les fichiers et dossiers dans /opt avec détails (propriétaire, permissions, etc.).
+
+groupadd devops → Crée un groupe nommé devops.
+
+useradd ansible → Crée un utilisateur nommé ansible.
+
+useradd jenkins → Crée un utilisateur nommé jenkins.
+
+useradd aws → Crée un utilisateur nommé aws.
+
+useradd miles → Crée un utilisateur nommé miles.
+
+vim /etc/group → Ouvre le fichier des groupes pour modification ou vérification.
+
+id ansible → Affiche l’UID, GID et groupes de l’utilisateur ansible.
+
+ls -ld /opt/devopsdir → Vérifie les permissions et le propriétaire du dossier /opt/devopsdir.
+
+chown -R ansible:devops /opt/devopsdir → Change le propriétaire du dossier et de son contenu pour ansible et le groupe devops.
+
+ls -ld /opt/devopsdir → Vérifie les changements de propriétaire et groupe.
+
+chmod o-x /opt/devopsdir → Retire le droit d’exécution pour les “autres” sur le dossier.
+
+ls -ld /opt/devopsdir → Vérifie la mise à jour des permissions.
+
+chmod o-r /opt/devopsdir → Retire le droit de lecture pour les “autres”.
+
+ls -ld /opt/devopsdir → Vérifie les nouvelles permissions.
+
+chmod g+w /opt/devopsdir → Ajoute le droit d’écriture pour le groupe.
+
+ls -ld /opt/devopsdir → Vérifie les permissions finales.
+
+su - miles → Passe à l’utilisateur miles.
+
+su - aws → Passe à l’utilisateur aws.
+
+mkdir /opt/webdata → Crée un dossier /opt/webdata.
+
+ls -ld /opt/webdata/ → Vérifie les permissions et le propriétaire du dossier.
+
+chown aws.devops /opt/webdata → Change le propriétaire du dossier à aws et le groupe à devops.
+
+ls -ld /opt/webdata/ → Vérifie la modification de propriétaire et groupe.
+
+chmod 770 /opt/webdata → Donne tous les droits au propriétaire et au groupe, aucun droit pour les autres.
+
+ls -ld /opt/webdata/ → Vérifie les permissions du dossier.
+
+chmod 000 /opt/webdata → Supprime tous les droits pour tous les utilisateurs.
+
+ls -ld /opt/webdata/ → Vérifie que le dossier est complètement verrouillé.
+
+chmod 777 /opt/webdata → Donne tous les droits à tous les utilisateurs (lecture, écriture, exécution).
+
+ls -ld /opt/webdata/ → Vérifie que les permissions ont été rétablies à 777.
+
+
+
+
+
+
+whoami → Affiche l’utilisateur courant (probablement vagrant).
+
+sudo yum install git -y → Installe git avec les droits administrateur, automatiquement sans confirmation.
+
+yum install git -y → Tente d’installer git sans sudo (peut échouer si pas root).
+
+useradd test → Crée un nouvel utilisateur test (peut échouer sans sudo).
+
+sudo useradd test → Crée l’utilisateur test avec privilèges administrateur.
+
+sudo -i → Passe en session root pour avoir tous les privilèges.
+
+su - ansible → Passe à l’utilisateur ansible.
+
+passwd ansible → Change le mot de passe de l’utilisateur ansible.
+
+su - ansible → Passe de nouveau à l’utilisateur ansible.
+
+visudo → Édite le fichier sudoers de manière sécurisée pour gérer les privilèges sudo.
+
+ls -l /etc/sudoers → Vérifie les permissions du fichier sudoers.
+
+visudo → Édite encore le fichier sudoers pour configuration.
+
+su - ansible → Passe à l’utilisateur ansible.
+
+visudo → Ré-édition du fichier sudoers.
+
+su - ansible → Passe à l’utilisateur ansible.
+
+ls -l /etc/sudoers → Vérifie les permissions du fichier sudoers après modifications.
+
+visudo → Édite à nouveau sudoers pour ajuster les droits.
+
+cd /etc/sudoers.d/ → Accède au dossier des fichiers sudoers supplémentaires.
+
+ls → Liste les fichiers dans /etc/sudoers.d/.
+
+cat vagrant → Affiche le contenu du fichier sudoers pour l’utilisateur vagrant.
+
+cp vagrant devops → Copie le fichier sudoers de vagrant vers devops pour créer un fichier de configuration similaire.
+
+vim devops → Édite le fichier devops pour ajuster les droits sudo.
+
+cat * → Affiche le contenu de tous les fichiers dans le répertoire actuel (/etc/sudoers.d/).
+
+
+
+
+
+
+
+tree /var/log → Affiche la structure arborescente du dossier /var/log (peut échouer si tree n’est pas installé).
+
+curl https://rpmfind.net/.../tree-1.6.0-10.el7.x86_64.rpm -o tree-1.6.0-10.el7.x86_64.rpm → Télécharge le paquet RPM tree depuis Internet.
+
+ls → Vérifie que le fichier RPM a été téléchargé.
+
+rpm -ivh tree-1.6.0-10.el7.x86_64.rpm → Installe le paquet tree à partir du fichier RPM.
+
+tree /var/log/ → Affiche maintenant la structure arborescente du dossier /var/log.
+
+curl https://rpmfind.net/.../httpd-2.4.6-95.el7.centos.x86_64.rpm -o httpd-2.4.6-95.el7.centos.x86_64.rpm → Télécharge le paquet RPM pour Apache (httpd).
+
+ls → Vérifie le téléchargement du fichier RPM.
+
+rpm -ivh httpd-2.4.6-95.el7.centos.x86_64.rpm → Installe le serveur Apache depuis le RPM.
+
+rpm --help → Affiche l’aide de la commande rpm.
+
+rpm -qa → Liste tous les paquets installés.
+
+rpm -qa | grep tree → Vérifie si le paquet tree est installé.
+
+rpm -e tree-1.6.0-10.el7.x86_64 → Supprime le paquet tree.
+
+rpm -qa | grep tree → Vérifie que le paquet tree a été désinstallé.
+
+tree → Teste la commande tree (échouera si désinstallée).
+
+cd /etc/yum.repos.d/ → Accède au dossier contenant les fichiers de configuration des dépôts YUM.
+
+ls → Liste les fichiers de configuration des dépôts.
+
+cat CentOS-Base.repo → Affiche le contenu du dépôt de base CentOS.
+
+yum search httpd → Cherche les paquets liés à httpd dans les dépôts.
+
+cd → Retour au répertoire home.
+
+yum install httpd → Installe Apache depuis les dépôts YUM.
+
+yum remove httpd → Désinstalle Apache.
+
+yum install httpd → Réinstalle Apache.
+
+yum search nginx → Cherche les paquets liés à nginx.
+
+yum install nginx → Installe le serveur web Nginx.
+
+yum install jenkins → Installe Jenkins (probablement échouera sans ajouter le dépôt officiel).
+
+ls /etc/yum.repos.d/ → Vérifie les dépôts YUM existants.
+
+yum install wget -y → Installe wget pour télécharger des fichiers depuis Internet.
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo → Télécharge le fichier de dépôt officiel Jenkins.
+
+cat /etc/yum.repos.d/jenkins.repo → Vérifie le contenu du fichier du dépôt Jenkins.
+
+rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key → Importe la clé GPG pour sécuriser le dépôt Jenkins.
+
+yum install jenkins java-1.8.0-openjdk-devel -y → Installe Jenkins et Java 1.8 (nécessaire pour Jenkins).
+
+yum upgrade → Met à jour tous les paquets du système à leur dernière version disponible.
+
+
+
+
+
+
+yum install httpd -y → Installe Apache HTTPD automatiquement sans demander de confirmation.
+
+systemctl status httpd → Vérifie l’état du service Apache (actif, inactif, erreur, etc.).
+
+systemctl start httpd → Démarre le service Apache.
+
+systemctl status httpd → Vérifie à nouveau l’état pour confirmer que le service tourne.
+
+systemctl restart httpd → Redémarre le service Apache (arrêt + démarrage).
+
+systemctl reload httpd → Recharge la configuration d’Apache sans interrompre les connexions en cours.
+
+systemctl status httpd → Vérifie l’état après le reload/restart.
+
+exit → Quitte la session utilisateur root ou autre shell en cours.
+
+systemctl status httpd → Vérifie l’état du service Apache (depuis un autre shell ou utilisateur).
+
+systemctl enable httpd → Active Apache pour qu’il démarre automatiquement au démarrage du système.
+
+systemctl status sshd → Vérifie l’état du service SSH.
+
+systemctl is-active httpd → Vérifie si le service Apache est actuellement actif (répond "active" ou "inactive").
+
+systemctl status httpd → Affiche l’état détaillé du service Apache.
+
+systemctl start httpd → Démarre Apache (utile si inactif).
+
+systemctl status httpd → Vérifie que Apache est bien actif.
+
+systemctl is-active httpd → Vérifie rapidement si Apache est actif.
+
+systemctl is-enabled httpd → Vérifie si Apache est configuré pour démarrer automatiquement au boot.
+
+cat /etc/systemd/system/multi-user.target.wants/httpd.service → Affiche le contenu du lien symbolique du service Apache pour voir sa configuration active.
+
+cat /etc/systemd/system/multi-user.target.wants/httpd.service → Répète la lecture du fichier pour confirmer la configuration du service.
+
+
+
+
+
+
+top → Affiche en temps réel les processus actifs, leur utilisation CPU/mémoire et d’autres statistiques système.
+
+ps aux → Liste tous les processus en cours avec informations détaillées (utilisateur, PID, CPU, mémoire, etc.).
+
+ps -ef → Affiche tous les processus sous un format standard (UID, PID, PPID, CMD).
+
+ps -ef | grep httpd → Filtre la liste des processus pour ne montrer que ceux liés à Apache (httpd).
+
+ps -ef | grep httpd | grep -v 'grep' → Même filtre que précédemment, mais exclut le processus grep lui-même pour ne montrer que les vrais processus Apache.
+
+kill 1420 → Envoie le signal TERM (arrêt normal) au processus ayant le PID 1420.
+
+ps -ef | grep httpd | grep -v 'grep' → Vérifie si le processus Apache a été arrêté après le kill.
+
+systemctl start httpd → Redémarre Apache si nécessaire.
+
+ps -ef | grep httpd | grep -v 'grep' → Vérifie que Apache est de nouveau actif.
+
+kill -9 1476 → Envoie le signal KILL (arrêt forcé) au processus PID 1476.
+
+ps -ef | grep httpd | grep -v 'grep' → Vérifie l’état des processus Apache après le kill forcé.
+
+ps -ef | grep httpd | grep -v 'grep' → Vérifie encore la liste des processus Apache.
+
+ps -ef | grep httpd | grep -v 'grep' | awk '{print $2}' → Récupère uniquement les PID de tous les processus Apache.
+
+ps -ef | grep httpd | grep -v 'grep' | awk '{print $2}' | xargs kill -9 → Tue de force tous les processus Apache en utilisant leurs PID.
+
+systemctl start httpd → Redémarre Apache après avoir tué tous ses processus.
+
+ps -ef | grep httpd | grep -v 'grep' | awk '{print $2}' → Vérifie les PID des processus Apache après redémarrage.
+
+ps -ef | grep httpd | grep -v 'grep' | awk '{print $2}' | xargs kill -9 → Tue de nouveau tous les processus Apache si nécessaire.
+
+
+
+
+
+cd /var/log/ → Se déplace dans le répertoire des logs système.
+
+ls → Liste le contenu du répertoire /var/log/.
+
+ls jenkins/ → Liste les fichiers du répertoire jenkins dans /var/log/.
+
+pwd → Affiche le chemin du répertoire courant (/var/log/).
+
+tar --help → Affiche l’aide de la commande tar pour les options d’archivage.
+
+cd /var/log/ → Retourne dans le répertoire /var/log/ si on en était sorti.
+
+pwd → Vérifie que l’on est bien dans /var/log/.
+
+tar -czvf jenkins_06122020.tar.gz jenkins → Crée une archive compressée gzip (.tar.gz) du dossier jenkins.
+
+ls -l → Affiche les détails des fichiers dans /var/log/, y compris l’archive nouvellement créée.
+
+ls -ltr → Liste les fichiers par ordre chronologique inversé, pour voir les plus récents en bas.
+
+file jenkins_06122020.tar.gz → Affiche le type de fichier de l’archive (tar gzip).
+
+mv jenkins_06122020.tar.gz /tmp/ → Déplace l’archive dans le répertoire temporaire /tmp/.
+
+cd /tmp/ → Se déplace dans /tmp/.
+
+ls → Vérifie que l’archive est bien dans /tmp/.
+
+tar -xzvf jenkins_06122020.tar.gz → Décompresse l’archive .tar.gz dans le répertoire courant (/tmp/).
+
+ls → Vérifie que le dossier jenkins a été extrait.
+
+tar -xzvf jenkins_06122020.tar.gz -C /opt/ → Décompresse l’archive directement dans /opt/.
+
+ls /opt/ → Vérifie que le dossier jenkins est bien présent dans /opt/.
+
+cd → Retourne dans le répertoire home de l’utilisateur.
+
+tar --help → Affiche l’aide de tar (redondant).
+
+cd /var/log/ → Retourne dans /var/log/.
+
+yum install zip unzip -y → Installe les outils zip et unzip pour la compression et décompression .zip.
+
+ls → Vérifie le contenu de /var/log/.
+
+zip -r jenkins_06122020.zip jenkins → Crée une archive compressée .zip du dossier jenkins.
+
+ls -ltr jenkins* → Vérifie les fichiers jenkins compressés avec date et ordre chronologique.
+
+mv jenkins_06122020.zip /opt/ → Déplace l’archive .zip dans /opt/.
+
+cd /opt/ → Se déplace dans /opt/.
+
+ls → Vérifie que l’archive .zip est présente.
+
+rm -rf jenkins → Supprime le dossier jenkins existant dans /opt/ pour nettoyer avant extraction.
+
+unzip jenkins_06122020.zip → Décompresse l’archive .zip dans /opt/.
+
+ls → Vérifie que le dossier jenkins a été correctement extrait.
+
+
+
+whoami → Affiche le nom de l’utilisateur courant.
+
+pwd → Affiche le répertoire courant.
+
+ls → Liste les fichiers dans le répertoire courant.
+
+cat /etc/os-release → Affiche les informations sur le système d’exploitation.
+
+useradd devops → Crée un nouvel utilisateur nommé devops.
+
+su - devops → Change l’utilisateur courant pour devops et charge son environnement.
+
+userdel -r devops → Supprime l’utilisateur devops et son répertoire personnel.
+
+adduser devops → Crée un utilisateur devops de manière plus interactive que useradd.
+
+id devops → Affiche l’UID, GID et groupes de l’utilisateur devops.
+
+visudo → Édite le fichier /etc/sudoers de façon sécurisée.
+
+export EDITOR=vim → Définit vim comme éditeur par défaut pour visudo.
+
+visudo → Ouvre à nouveau /etc/sudoers avec vim.
+
+wget http://archive.ubuntu.com/ubuntu/pool/universe/t/tree/tree_1.7.0-3_amd64.deb → Télécharge le package .deb de tree.
+
+ls → Vérifie que le fichier .deb a été téléchargé.
+
+dpkg -i tree_1.7.0-3_amd64.deb → Installe le package tree localement.
+
+tree → Affiche la structure des fichiers sous forme d’arborescence.
+
+dpkg -l → Liste tous les packages installés.
+
+dpkg -l | grep tree → Vérifie si tree est installé.
+
+dpkg -r tree → Supprime le package tree.
+
+cd /etc/apt/ → Se déplace dans le répertoire de configuration des dépôts apt.
+
+ls → Liste les fichiers présents dans /etc/apt/.
+
+cat sources.list → Affiche les sources de dépôts pour apt.
+
+apt update → Met à jour la liste des packages disponibles depuis les dépôts.
+
+cd → Retourne dans le répertoire personnel de l’utilisateur.
+
+apt search tree → Cherche les packages contenant tree.
+
+apt install tree → Installe tree depuis les dépôts officiels.
+
+apt install apache2 → Installe le serveur web Apache2.
+
+systemctl status apache2 → Vérifie l’état du service Apache2.
+
+systemctl is-enabled apache2 → Vérifie si Apache2 est configuré pour démarrer automatiquement.
+
+apt upgrade → Met à jour tous les packages installés.
+
+apt remove apache2 → Supprime le package Apache2 mais conserve ses fichiers de configuration.
+
+apt install apache2 → Réinstalle Apache2.
+
+apt purge apache2 → Supprime Apache2 ainsi que tous ses fichiers de configuration.
+
+
+
+
