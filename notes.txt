@@ -50,14 +50,14 @@ vagrant up
 
 
 $ VBoxManage list bridgedifs
-Name:            Intel(R) Ethernet Connection (16) I219-LM
-GUID:            28f44736-3564-4d86-8d5e-a05f47e018aa
+Name:            Intel(R) Ethernet Connection (15) I129-LM
+GUID:            29987436-3222-3j333-3j333-aek998818aa
 DHCP:            Enabled
-IPAddress:       10.2.222.207
+IPAddress:       127.1.22.207
 NetworkMask:     255.255.255.0
-IPV6Address:     fe80::805:4e3a:56ac:2b81
+IPV6Address:     0000::000:4HH4:4HH4:3K3K
 IPV6NetworkMaskPrefixLength: 64
-HardwareAddress: 5c:60:ba:52:d3:63
+HardwareAddress: H4:44:33:22:22:22
 MediumType:      Ethernet
 Wireless:        No
 Status:          Up
