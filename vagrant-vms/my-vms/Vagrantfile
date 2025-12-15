@@ -1,0 +1,54 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  # Base box
+  config.vm.box = "ubuntu/jammy64"
+
+  # Réseau privé (host-only network)
+  # Permet la communication entre l’hôte et la VM uniquement.
+  # L’IP est fixée manuellement.
+  config.vm.network "private_network", ip: "10.2.33.10"
+
+  # Réseau public (bridged network)
+  # La machine virtuelle apparaît comme un appareil
+  # à part entière sur le réseau local.
+  config.vm.network "public_network", bridge: "Intel(R) Ethernet Connection (16) I219-LM"
+
+  # Synced folder: ./scripts sur l'hôte -> /home/vagrant/scripts dans la VM
+  config.vm.synced_folder "./scripts", "/opt/scripts"
+
+  # Provisioning: exécuter le script depuis la VM
+  # config.vm.provision "shell", path: "/home/vagrant/scripts/bootstrap.sh"
+
+  # VirtualBox provider configuration
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = 1024
+    vb.cpus  = 2
+  end
+
+  # Activer le provisionnement avec un script shell.  
+  # D'autres provisionneurs sont également disponibles,  
+  # comme Ansible, Chef, Docker, Puppet et Salt.  
+  # Veuillez consulter la documentation pour plus d'informations  
+  # sur leur syntaxe spécifique et leur utilisation.  
+  config.vm.provision "shell", inline: <<-SHELL
+    # Mettre à jour la liste des paquets
+    apt-get update -y
+  
+    # Installer Apache (httpd), wget, unzip, git et net-tools
+    apt-get install -y apache2 wget unzip git net-tools
+  
+    # Créer le dossier /opt/devopsdir s'il n'existe pas
+    mkdir -p /opt/devopsdir
+  
+    # Sauvegarder l'état de la mémoire dans /opt/devopsdir/memory.txt
+    free -m >> /opt/devopsdir/memory.txt
+  
+    # Sauvegarder l'état du disque dans /opt/devopsdir/disk.txt
+    df -h >> /opt/devopsdir/disk.txt
+  SHELL
+
+
+end

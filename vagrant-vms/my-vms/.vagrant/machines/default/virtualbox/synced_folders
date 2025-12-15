@@ -1,0 +1,1 @@
+{"virtualbox":{"/opt/scripts":{"guestpath":"/opt/scripts","hostpath":"C:/vagrant-vms/my-vms/scripts","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/vagrant-vms/my-vms","disabled":false,"__vagrantfile":true}}}

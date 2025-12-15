@@ -31,3 +31,124 @@ Ubuntu24 : (version serveur)
 //v\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 
+VAGRANT :
+
+https://portal.cloud.hashicorp.com/vagrant/discover?product_intent=vagrant
+
+cd /c/vagrant-vms/
+cd centos/
+vagrant init
+vagrant init generic/centos9s
+vagrant up
+vagrant box list
+vagrant status
+vagrant global-status --prune
+vagrant ssh
+vagrant halt
+vagrant destroy
+vagrant up
+
+
+$ VBoxManage list bridgedifs
+Name:            Intel(R) Ethernet Connection (16) I219-LM
+GUID:            28f44736-3564-4d86-8d5e-a05f47e018aa
+DHCP:            Enabled
+IPAddress:       10.2.222.207
+NetworkMask:     255.255.255.0
+IPV6Address:     fe80::805:4e3a:56ac:2b81
+IPV6NetworkMaskPrefixLength: 64
+HardwareAddress: 5c:60:ba:52:d3:63
+MediumType:      Ethernet
+Wireless:        No
+Status:          Up
+VBoxNetworkName: HostInterfaceNetworking-Intel(R) Ethernet Connection (16) I219-LM
+
+
+
+_________________________________________________________________________
+*************************************************************************
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  # Base box
+  config.vm.box = "ubuntu/jammy64"
+
+  # Réseau privé (host-only network)
+  # Permet la communication entre l’hôte et la VM uniquement.
+  # L’IP est fixée manuellement.
+  config.vm.network "private_network", ip: "10.2.33.10"
+
+  # Réseau public (bridged network)
+  # La machine virtuelle apparaît comme un appareil
+  # à part entière sur le réseau local.
+  config.vm.network "public_network", bridge: "Intel(R) Ethernet Connection (16) I219-LM"
+
+  # Synced folder: ./scripts sur l'hôte -> /home/vagrant/scripts dans la VM
+  config.vm.synced_folder "./scripts", "/opt/scripts"
+
+  # Provisioning: exécuter le script depuis la VM
+  # config.vm.provision "shell", path: "/home/vagrant/scripts/bootstrap.sh"
+
+  # VirtualBox provider configuration
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = 1024
+    vb.cpus  = 2
+  end
+
+end
+_________________________________________________________________________
+*************************************************************************
+
+vagrant reload
+
+vagrant ssh # vagrant:vagrant
+#> touch  /opt/scripts/coder{1..5}.py
+
+
+
+
+
+_________________________________________________________________________
+*************************************************************************
+  config.vm.provision "shell", inline: <<-SHELL
+    # Mettre à jour la liste des paquets
+    apt-get update
+    
+    # Installer Apache2
+    apt-get install -y apache2
+  SHELL
+_________________________________________________________________________
+*************************************************************************
+
+
+vagrant provision # pour appliquer sur une VM déjà démarrée : 
+
+
+
+
+
+mkdir /c/vagrant-vms/finance
+cd /c/vagrant-vms/finance/
+vagrant init eurolinux-vagrant/centos-stream-9
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+ 
+
