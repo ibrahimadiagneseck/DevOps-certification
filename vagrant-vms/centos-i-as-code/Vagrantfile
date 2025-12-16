@@ -1,0 +1,107 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Toute la configuration Vagrant se fait ci-dessous.
+# Le "2" correspond à la version de configuration utilisée par Vagrant.
+# Ne le modifiez pas sauf si vous savez exactement ce que vous faites.
+Vagrant.configure("2") do |config|
+
+  # Qu’est-ce que l’IAC (Infrastructure as Code) ?
+  #   Infrastructure as Code signifie que l’infrastructure (serveurs, réseaux, bases de données, configurations, etc.) est définie et gérée par du code, plutôt que manuellement via des consoles graphiques.
+  # Avantages :
+  #   Reproductible : tu peux recréer ton environnement facilement.
+  #   Versionnable : tu peux gérer l’infrastructure avec Git.
+  #   Automatisé : plus besoin de faire des actions manuelles.
+  #   Testable et maintenable.
+  # Exemples d’outils IAC :
+  #   Vagrant → VM locales (déjà utilisé ici)
+  #   Terraform → cloud et on-premises
+  #   Ansible / Chef / Puppet → configuration serveur
+  #   CloudFormation → AWS
+
+  # Box de base
+  config.vm.box = "eurolinux-vagrant/centos-stream-9"
+
+  # Désactive la vérification automatique des mises à jour de la box.
+  # Si désactivé, les mises à jour seront vérifiées uniquement
+  # lors de l’exécution de `vagrant box outdated`.
+  # (Non recommandé en général)
+  # config.vm.box_check_update = false
+
+  # Redirection de port :
+  # Permet d’accéder à un port de la machine virtuelle
+  # depuis un port de la machine hôte.
+  # Exemple : localhost:8080 (hôte) → port 80 (VM)
+  # ATTENTION : ceci rend le port accessible publiquement.
+  # config.vm.network "forwarded_port", guest: 80, host: 8080
+
+  # Redirection de port avec restriction à localhost (127.0.0.1)
+  # Cela empêche l’accès depuis l’extérieur.
+  # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
+
+  # ------------------------------
+  # Réseau privé (host-only)
+  # ------------------------------
+  config.vm.network "private_network", ip: "10.2.33.21"
+
+  # ------------------------------
+  # Réseau public (bridged)
+  # ------------------------------
+  config.vm.network "public_network", bridge: "Intel(R) Ethernet Connection (16) I219-LM"
+
+  # Partage de dossier supplémentaire entre l’hôte et la VM.
+  # Le premier chemin est celui de l’hôte,
+  # le second est le point de montage dans la VM.
+  # config.vm.synced_folder "../data", "/vagrant_data"
+
+  # Désactive le partage par défaut du dossier du projet.
+  # Cela améliore l’isolation entre l’hôte et la VM.
+  # Si activé, il faut définir d’autres dossiers partagés manuellement.
+  # config.vm.synced_folder ".", "/vagrant", disabled: true
+
+  # Configuration spécifique au provider VirtualBox
+  config.vm.provider "virtualbox" do |vb|
+    # Afficher l’interface graphique de VirtualBox au démarrage
+    # vb.gui = true
+
+    # Quantité de mémoire RAM allouée à la machine virtuelle (en Mo)
+    vb.memory = "1024"
+
+    # Nombre de processeurs alloués à la machine virtuelle
+    vb.cpus = 2
+  end
+
+  # ==============================
+  # Provisionnement Shell
+  # ==============================
+  config.vm.provision "shell", inline: <<-SHELL
+
+    # ------------------------------
+    # Définir le nom d’hôte (hostname)
+    # ------------------------------
+    # Équivalent propre de :
+    # echo finance > /etc/hostname
+    # hostname finance
+    hostnamectl set-hostname finance
+    dnf update -y
+
+    # yum install httpd wget unzip vim -y
+    dnf install -y httpd wget vim unzip zip net-tools
+
+    systemctl start httpd
+    systemctl enabled httpd
+
+    mkdir -p /tmp/finance
+    cd /tmp/finance
+    wget https://www.tooplate.com/zip-templates/2135_mini_finance.zip
+    unzip -o 2135_mini_finance.zip
+    cp -r 2135_mini_finance/* /var/www/html/
+
+    systemctl restart httpd
+
+    cd /tmp/
+    rm -rf /tmp/finance
+
+  SHELL
+
+end

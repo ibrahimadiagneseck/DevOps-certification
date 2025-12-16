@@ -1,0 +1,80 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  # Variable pour l'interface réseau (à adapter selon votre système)
+  NETWORK_INTERFACE = "enp0s3"
+  # Alternatives possibles :
+  # - "eth0" pour Linux
+  # - "en0" ou "en1" pour Mac
+  # - "Ethernet" ou "Wi-Fi" pour Windows
+  # - Auto-détection : `bridge: "bridgeadapter1"`
+
+  # ==================== MACHINE 1: WordPress ====================
+  config.vm.define "wordpress" do |wordpress|
+    wordpress.vm.box = "ubuntu/focal64"
+    wordpress.vm.hostname = "wordpress"
+    
+    # Configuration réseau
+    wordpress.vm.network "private_network", ip: "10.2.33.17"
+    wordpress.vm.network "public_network", bridge: NETWORK_INTERFACE
+    
+    # Dossier partagé pour les fichiers WordPress
+    wordpress.vm.synced_folder "./wordpress-data", "/var/wordpress-data", create: true
+    
+    # Configuration VirtualBox
+    wordpress.vm.provider "virtualbox" do |vb|
+      vb.name = "wordpress-vm"
+      vb.memory = "2048"
+      vb.cpus = 2
+    end
+    
+    # Provisionnement
+    wordpress.vm.provision "shell", path: "provision/wordpress.sh"
+  end
+
+  # ==================== MACHINE 2: Finance ====================
+  config.vm.define "finance" do |finance|
+    finance.vm.box = "eurolinux-vagrant/centos-stream-9"
+    finance.vm.hostname = "finance"
+    
+    # Configuration réseau
+    finance.vm.network "private_network", ip: "10.2.33.21"
+    finance.vm.network "public_network", bridge: NETWORK_INTERFACE
+    
+    # Configuration VirtualBox
+    finance.vm.provider "virtualbox" do |vb|
+      vb.name = "finance-vm"
+      vb.memory = "1024"
+      vb.cpus = 2
+    end
+    
+    # Provisionnement
+    finance.vm.provision "shell", path: "provision/finance.sh"
+  end
+
+  # ==================== MACHINE 3: DevOps ====================
+  config.vm.define "devops" do |devops|
+    devops.vm.box = "ubuntu/jammy64"
+    devops.vm.hostname = "devops"
+    
+    # Configuration réseau
+    devops.vm.network "private_network", ip: "10.2.33.10"
+    devops.vm.network "public_network", bridge: NETWORK_INTERFACE
+    
+    # Dossier partagé pour les scripts
+    devops.vm.synced_folder "./scripts", "/opt/vagrant-scripts", create: true
+    
+    # Configuration VirtualBox
+    devops.vm.provider "virtualbox" do |vb|
+      vb.name = "devops-vm"
+      vb.memory = 1024
+      vb.cpus = 2
+    end
+    
+    # Provisionnement
+    devops.vm.provision "shell", path: "provision/devops.sh"
+  end
+
+end
