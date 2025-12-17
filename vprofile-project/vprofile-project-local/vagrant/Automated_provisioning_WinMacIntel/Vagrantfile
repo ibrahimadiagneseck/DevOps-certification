@@ -1,4 +1,11 @@
 Vagrant.configure("2") do |config|
+
+  # vagrant plugin install vagrant-vbguest
+  # vagrant plugin install vagrant-hostmanager
+  # vagrant plugin uninstall --all --force
+  # vagrant-hostmanager-start
+
+
   # =============================================
   # CONFIGURATION GLOBALE
   # =============================================
@@ -6,12 +13,12 @@ Vagrant.configure("2") do |config|
   # Configuration du plugin vagrant-hostmanager
   config.hostmanager.enabled = true
   config.hostmanager.manage_host = true
-  config.hostmanager.manage_guest = true  # Décommenté pour gérer les hosts des machines invitées
+  # config.hostmanager.manage_guest = true  # Décommenté pour gérer les hosts des machines invitées
   
   # Configuration VirtualBox globale
-  config.vm.provider "virtualbox" do |vb|
-    vb.gui = false  # Désactive l'interface graphique par défaut
-  end
+  # config.vm.provider "virtualbox" do |vb|
+  #   vb.gui = false  # Désactive l'interface graphique par défaut
+  # end
 
   # =============================================
   # MACHINE DB01 - SERVEUR DE BASE DE DONNÉES
@@ -22,6 +29,14 @@ Vagrant.configure("2") do |config|
     
     # Configuration réseau
     db01.vm.network "private_network", ip: "192.168.56.15"
+
+    # OPTION 1: Disable shared folders completely
+    # db01.vm.synced_folder ".", "/vagrant", disabled: true
+    # db01.vm.synced_folder "./database/backups", "/backups", disabled: true
+
+    # OPTION 2 : Utiliser rsync au lieu de vboxsf (décommentez si vous préférez)
+    db01.vm.synced_folder ".", "/vagrant", type: "rsync"
+    db01.vm.synced_folder "./database/backups", "/backups", type: "rsync"
     
     # Configuration VirtualBox
     db01.vm.provider "virtualbox" do |vb|
@@ -33,8 +48,6 @@ Vagrant.configure("2") do |config|
     # Provisioning
     db01.vm.provision "shell", path: "./mysql.sh"
     
-    # Synchronisation de dossiers
-    db01.vm.synced_folder "./database/backups", "/backups"
   end
 
   # =============================================

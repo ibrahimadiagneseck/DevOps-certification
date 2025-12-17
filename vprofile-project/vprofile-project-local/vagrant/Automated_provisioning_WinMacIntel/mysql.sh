@@ -1,5 +1,6 @@
 #!/bin/bash
 DATABASE_PASS='admin123'
+VPROJECT_PATH="/tmp/vprofile-project"
 
 # SECTION 1 : INSTALLATION
 # -------------------------------------------------------------------------------
@@ -13,8 +14,20 @@ sudo yum install mariadb-server -y
 sudo systemctl start mariadb
 sudo systemctl enable mariadb
 
-cd /tmp/
-git clone -b main https://github.com/hkhcoder/vprofile-project.git
+# Copier le projet depuis le dossier partagé vers /tmp
+# Assurez-vous que /vagrant/backups/vprofile-project existe (chemin partagé)
+if [ -d "/vagrant/backups/vprofile-project" ]; then
+    sudo cp -r /vagrant/backups/vprofile-project /tmp/
+    echo "Projet copié depuis /vagrant/backups/vprofile-project vers /tmp/"
+elif [ -d "/backups/vprofile-project" ]; then
+    sudo cp -r /backups/vprofile-project /tmp/
+    echo "Projet copié depuis /backups/vprofile-project vers /tmp/"
+else
+    # Fallback: Cloner si le dossier n'existe pas
+    echo "Dossier vprofile-project non trouvé, clonage depuis GitHub..."
+    cd /tmp/
+    git clone -b main https://github.com/hkhcoder/vprofile-project.git
+fi
 
 # Configuration du mot de passe root
 sudo mysqladmin -u root password "$DATABASE_PASS"
@@ -32,8 +45,17 @@ sudo mysql -u root -p"$DATABASE_PASS" -e "CREATE USER IF NOT EXISTS 'admin'@'%' 
 sudo mysql -u root -p"$DATABASE_PASS" -e "GRANT ALL PRIVILEGES ON accounts.* TO 'admin'@'localhost'"
 sudo mysql -u root -p"$DATABASE_PASS" -e "GRANT ALL PRIVILEGES ON accounts.* TO 'admin'@'%'"
 
-# Restauration de la base de données
-sudo mysql -u root -p"$DATABASE_PASS" accounts < /tmp/vprofile-project/src/main/resources/db_backup.sql
+# Restauration de la base de données depuis le chemin local
+if [ -f "$VPROJECT_PATH/src/main/resources/db_backup.sql" ]; then
+    sudo mysql -u root -p"$DATABASE_PASS" accounts < "$VPROJECT_PATH/src/main/resources/db_backup.sql"
+    echo "Base de données restaurée depuis: $VPROJECT_PATH/src/main/resources/db_backup.sql"
+else
+    echo "ERREUR: Fichier db_backup.sql non trouvé dans $VPROJECT_PATH/src/main/resources/"
+    echo "Contenu du dossier:"
+    find "$VPROJECT_PATH" -name "*.sql" -type f 2>/dev/null || ls -la "$VPROJECT_PATH" 2>/dev/null
+    exit 1
+fi
+
 sudo mysql -u root -p"$DATABASE_PASS" -e "FLUSH PRIVILEGES"
 
 # SECTION 3 : CONFIGURATION DU RÉSEAU ET PARC-FEU

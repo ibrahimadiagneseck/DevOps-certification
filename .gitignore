@@ -1,0 +1,80 @@
+# =============================================
+# Vagrant / VirtualBox
+# =============================================
+.vagrant/
+*.vmdk
+*.vdi
+*.box
+.virtualbox/
+
+# =============================================
+# Système d'exploitation / IDE
+# =============================================
+.DS_Store
+*.swp
+*.swo
+*~
+Thumbs.db
+
+# =============================================
+# Éditeurs de texte / IDE
+# =============================================
+.vscode/
+.idea/
+*.iml
+
+# =============================================
+# Logs et fichiers temporaires
+# =============================================
+*.log
+*.tmp
+*.temp
+tmp/
+temp/
+
+# =============================================
+# Fichiers sensibles / secrets
+# =============================================
+*.pem
+*.key
+*.cert
+*.p12
+*.pfx
+.env
+.secrets/
+passwords.txt
+credentials*
+
+# =============================================
+# Fichiers de sauvegarde
+# =============================================
+*.bak
+*.backup
+~*
+
+# =============================================
+# Fichiers de compilation / build
+# =============================================
+target/
+build/
+dist/
+*.class
+*.jar
+*.war
+
+# =============================================
+# Configuration OS spécifique
+# =============================================
+# Windows
+desktop.ini
+
+# macOS
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.trash-*
