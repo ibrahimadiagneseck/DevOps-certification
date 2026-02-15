@@ -1,6 +1,29 @@
-sudo apt update
-sudo apt install apache2 wget unzip -y
+
+
+
+cat /etc/os-release
+hostname -f
+ip addr show
+
+sudo dnf update -y
+sudo dnf install httpd wget unzip -y
 wget https://www.tooplate.com/zip-templates/2128_tween_agency.zip
 unzip 2128_tween_agency.zip
 sudo cp -r 2128_tween_agency/* /var/www/html/
-sudo systemctl restart apache2
+sudo systemctl start httpd
+sudo systemctl enable httpd
+sudo systemctl status httpd
+
+
+sudo dnf install git -y
+git --version
+
+git clone https://github.com/ibrahimadiagneseck/portfolio.git
+sudo rm -r /var/www/html/*
+sudo cp -r portfolio/* /var/www/html/
+
+
+
+http://34.229.134.149
+
+
